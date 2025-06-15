@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ram Chemical Enterprises - Company Profile</title>
+    <!-- Google Fonts: Poppins (for headings) and Inter (for body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Inter', sans-serif; /* Primary body font */
+            margin: 0;
+            padding: 0;
+            background-color: #f2f4f6; /* Light grey background for the page */
+            color: #333333; /* Dark grey for general text */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Container for the entire profile */
+        .container {
+            max-width: 960px; /* Wider container for a richer layout */
+            margin: 30px auto;
+            background-color: #ffffff; /* White background for content */
+            border-radius: 12px; /* More pronounced rounded corners */
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger, more professional shadow */
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid #eeeeee;
+        }
+        .header .logo {
+            max-width: 250px; /* Larger logo */
+            height: auto;
+            margin-bottom: 15px;
+        }
+        .header .tagline {
+            font-size: 1.1em;
+            color: #666666;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #e42d12; /* Deep Red - Brand Primary */
+            color: #ffffff;
+            padding: 60px 40px; /* More padding for impact */
+            text-align: center;
+        }
+        .hero h1 {
+            font-family: 'Poppins', sans-serif; /* Poppins for headings */
+            font-size: 3.2em; /* Larger, impactful headline */
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            line-height: 1.15;
+        }
+        .hero p {
+            font-size: 1.3em; /* Larger subheading */
+            font-weight: 300;
+            margin: 0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling (About Us, Infrastructure, Certifications, etc.) */
+        .section {
+            padding: 40px; /* Consistent padding */
+            border-bottom: 1px solid #eeeeee;
+        }
+        .section:last-of-type {
+            border-bottom: none; /* No border for the last section */
+        }
+        .section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #e42d12; /* Deep Red for section titles */
+            font-size: 2.2em;
+            font-weight: 600;
+            margin: 0 0 25px 0;
+            text-align: center;
+        }
+        .section p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #444444;
+            margin-bottom: 1em;
+        }
+        .section ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1em;
+        }
+        .section ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+            color: #444444;
+        }
+        .section ul li::before {
+            content: '•';
+            color: #e42d12; /* Deep Red bullet points */
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive 2-column layout */
+            gap: 25px; /* Increased gap */
+            padding: 30px 40px;
+            background-color: #fdfdfd; /* Off-white for service background */
+        }
+        .service-item {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px; /* Slightly more rounded service items */
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* Stack icon and text */
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .service-item:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        .service-item img {
+            max-width: 60px; /* Larger icons */
+            height: auto;
+            margin-bottom: 15px;
+        }
+        .service-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2em;
+            color: #222222;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+        .service-item p {
+            font-size: 0.95em;
+            color: #666666;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Client Logos Section */
+        .client-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px; /* Space between logos */
+            margin-top: 30px;
+        }
+        .client-logos img {
+            max-width: 120px; /* Larger client logos */
+            height: auto;
+            opacity: 0.7; /* Slightly faded for sophisticated look */
+            transition: opacity 0.2s ease-in-out;
+        }
+        .client-logos img:hover {
+            opacity: 1; /* Full opacity on hover */
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: #f65a43; /* Lighter Red Accent */
+            padding: 50px 40px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .cta-section h2 {
+            color: #ffffff; /* White text on accent background */
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #000000; /* Black - Secondary color for buttons */
+            color: #ffffff;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 10px;
+            transition: background-color 0.2s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            background-color: #333333;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #1a1a1a; /* Darker black */
+            color: #cccccc;
+            padding: 30px 40px;
+            text-align: center;
+            font-size: 0.9em;
+            line-height: 1.7;
+            border-radius: 0 0 12px 12px; /* Match container border-radius */
+        }
+        .footer a {
+            color: #fdd9d5; /* Lightest Red Accent for links */
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons img {
+            width: 28px; /* Larger social icons */
+            height: 28px;
+            margin: 0 12px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .footer .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0; /* Remove margin on smaller screens */
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .header, .hero, .section, .services-grid, .cta-section, .footer {
+                padding: 25px 20px; /* Reduced padding for mobile */
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .section h2 {
+                font-size: 1.8em;
+            }
+            .services-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+            .service-item img {
+                max-width: 50px; /* Slightly smaller icons on mobile */
+            }
+            .service-item h3 {
+                font-size: 1.1em;
+            }
+            .service-item p {
+                font-size: 0.9em;
+            }
+            .cta-button {
+                display: block; /* Stack buttons on mobile */
+                margin: 10px auto;
+                width: 90%; /* Make buttons full width */
+                max-width: 300px;
+            }
+            .client-logos {
+                gap: 20px;
+            }
+            .client-logos img {
+                max-width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .section h2 {
+                font-size: 1.6em;
+            }
+            .section p, .section ul li {
+                font-size: 0.95em;
+            }
+            .footer {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/Company-Logo.png" alt="Ram Chemical Enterprises Logo" class="logo">
+            <p class="tagline">Leading the Future of Water Treatment and Chemical Solutions Since 1999</p>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Driving Industrial Excellence Through Precision Water Management</h1>
+            <p>Ram Chemical Enterprises delivers unparalleled quality in water treatment, equipment, and chemical supply, ensuring optimal performance and sustainability for industries worldwide.</p>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="section about-us">
+            <h2>About Ram Chemical Enterprises</h2>
+            <p>Established in 1999 in Agra, India, Ram Chemical Enterprises has grown to become a trusted and reliable name in the water treatment industry. As an ISO Certified 9001:2015 company, we are dedicated to providing a comprehensive range of Water Treatment Chemicals, Water Treatment Equipment, and Water Treatment Plants. We are manufacturers and dealers of all types of plants and chemicals for wastewater treatment, alongside a robust portfolio of basic chemicals.</p>
+            <p>Under the visionary leadership of our founder and Technical Director, Mr. Ramesh Chauhan (B.Tech Chemical IIT Roorkee), with decades of industry experience, we have cultivated a legacy of innovation and client trust. Our success is further bolstered by Mrs. Anju Chauhan (B. Tech. Electronics IIT Roorkee) leading Commercial & Administration, and Mr. Anand overseeing Technical Sales, ensuring a holistic approach to excellence.</p>
+            <h3>Our Core Philosophy:</h3>
+            <ul>
+                <li>To be a true partner, fostering relationships built on trust, honesty, and commercial transparency.</li>
+                <li>To provide customized & cost-effective water treatment solutions and services.</li>
+                <li>To continuously grow by adding products and services developed through rigorous R&D and strategic marketing of specialty niche products.</li>
+                <li>To commit to continuous improvement in both our team's skill sets and product quality.</li>
+                <li>To tirelessly bring the latest technologically advanced products, solutions, and chemistry to ensure trouble-free operations for our clients.</li>
+            </ul>
+        </section>
+
+        <!-- Our Expertise / Solutions Section (Service Grid) -->
+        <section class="section services-grid-container">
+            <h2>Our Comprehensive Solutions & Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-chemical%20image%20icon.png" alt="Water Treatment Chemicals">
+                    <h3>Water Treatment Chemicals</h3>
+                    <p>A comprehensive range of chemicals for various water treatment needs.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/boiler-water-chemicals%20image%20icon.png" alt="Boiler Water Chemicals">
+                    <h3>Boiler Water Chemicals</h3>
+                    <p>Specialty chemicals ensuring optimal performance and protection for boilers.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/cooling-water-treatment-chemicals%20image%20icon.png" alt="Cooling Water Treatment Chemicals">
+                    <h3>Cooling Water Treatment Chemicals</h3>
+                    <p>Advanced formulations to prevent corrosion, scaling, and biofouling in cooling systems.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/effluent-treatment-chemicals%20image%20icon.png" alt="Effluent Treatment Chemicals">
+                    <h3>Effluent Treatment Chemicals</h3>
+                    <p>Effective chemicals for treating industrial and domestic wastewater effluents.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/ro-chemicals%20image%20icon.png" alt="RO Chemicals">
+                    <h3>RO Chemicals</h3>
+                    <p>Essential chemicals for optimizing the performance and longevity of Reverse Osmosis systems.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/paper-process-chemicals%20image%20icon.png" alt="Paper Process Chemicals">
+                    <h3>Paper Process Chemicals</h3>
+                    <p>Specialized chemicals enhancing efficiency and quality in paper manufacturing.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/sugar-processing-chemicals%20image%20icon.png" alt="Sugar Processing Chemicals">
+                    <h3>Sugar Processing Chemicals</h3>
+                    <p>Formulations designed for optimal processing and purification in the sugar industry.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-plant%20image%20icon.png" alt="Water Treatment Plant">
+                    <h3>Water Treatment Plants</h3>
+                    <p>Custom-engineered plants for diverse water treatment applications.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/reverse-osmosis-plants%20image%20icon.png" alt="Reverse Osmosis Plants">
+                    <h3>Reverse Osmosis Plants</h3>
+                    <p>Advanced RO systems for highly purified water production, designed for efficiency.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-softening-plant%20image%20icon.png" alt="Water Softening Plant">
+                    <h3>Water Softening Plant</h3>
+                    <p>Robust plants to effectively reduce water hardness for industrial and commercial use.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-filteration-plant%20image%20icon.png" alt="Water Filtration Plant">
+                    <h3>Water Filtration Plant</h3>
+                    <p>Comprehensive filtration solutions, including Pressure Sand, Multi-grade, and Activated Carbon filters.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-recycling-plant%20image%20icon.png" alt="Water Recycling Plant">
+                    <h3>Water Recycling Plant</h3>
+                    <p>Sustainable solutions for water reuse, minimizing environmental impact and operational costs.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/hydranautics-membrane%20image%20icon.png" alt="Hydranautics Membrane">
+                    <h3>Hydranautics Membrane</h3>
+                    <p>High-performance membranes crucial for advanced water purification and filtration.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/code-line-pressure%20tube%20image%20icon.png" alt="Code Line Pressure Tube">
+                    <h3>Code Line Pressure Tube</h3>
+                    <p>Durable and high-quality pressure tubes designed for reliable system performance.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/frp-and-composit-tanks%20image%20icon.png" alt="FRP and Composite Tanks">
+                    <h3>FRP and Composite Tanks</h3>
+                    <p>Corrosion-resistant and durable tanks for various water storage and treatment applications.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/fleck-valve%20image%20icon.png" alt="Fleck Valve">
+                    <h3>Fleck Valve</h3>
+                    <p>Reliable automatic control valves essential for softener and filter systems.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/manual-multiport-valves%20image%20icon.png" alt="Manual Multiport Valves">
+                    <h3>Manual Multiport Valves</h3>
+                    <p>Versatile and robust valves for effective control of water flow in various systems.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/wellmate-hydronumatics-frp-tanks%20image%20icon.png" alt="Wellmate Hydronumatics FRP Tanks">
+                    <h3>Wellmate Hydronumatics FRP Tanks</h3>
+                    <p>Specialized FRP tanks designed for hydropneumatic applications, ensuring durability.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-spares%20image%20icon.png" alt="Water Treatment Spares">
+                    <h3>Water Treatment Spares</h3>
+                    <p>Essential spare parts and accessories to ensure continuous and efficient plant operation.</p>
+                </div>
+                <div class="service-item">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-services%20image%20icon.png" alt="Water Treatment Services">
+                    <h3>Water Treatment Services</h3>
+                    <p>Expert consultancy, feasibility studies, installation, and after-sales support.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infrastructure & Team Section -->
+        <section class="section infrastructure-team">
+            <h2>Our Foundation: Infrastructure & Expertise</h2>
+            <p>Our state-of-the-art facility is equipped with the latest devices and machinery, including cooling tanks, filters, boilers, centrifuges, reactors, spray towers, and filtration equipment. This robust infrastructure supports our comprehensive operations from processing to quality testing and research & development, ensuring precision and efficiency at every stage.</p>
+            <p>Our strength lies in our highly qualified and experienced team, comprising:</p>
+            <ul>
+                <li><strong>Engineers:</strong> Designing technically advanced Water Treatment Plants.</li>
+                <li><strong>Chemical Engineers:</strong> Formulating effective Water Treatment Chemicals.</li>
+                <li><strong>Procurement Agents:</strong> Sourcing quality-approved products from reliable vendors.</li>
+                <li><strong>Technicians & Service Engineers:</strong> Providing seamless installation, excellent after-sales support, maintenance, and repairing services.</li>
+                <li><strong>Quality Analysts:</strong> Ensuring all products meet stringent industrial standards.</li>
+            </ul>
+        </section>
+
+        <!-- Certifications & Clients Section -->
+        <section class="section certifications-clients">
+            <h2>Trusted by Industry Leaders</h2>
+            <p>Our commitment to quality and excellence has earned us the trust of a wide range of esteemed clients across diverse sectors. We are proud to be ISO 9001:2015 Certified, a testament to our unwavering dedication to international quality standards.</p>
+            <div class="client-logos">
+                <!-- Replace these with actual client logos if available -->
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Thermax" alt="Thermax Ltd. Logo">
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Doshion" alt="Doshion Ltd. Logo">
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Va-tech" alt="Va-tech (Wabag Ltd.) Logo">
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Atul+Industries" alt="Atul Industries Logo">
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Hind+Lamps" alt="Hind Lamps Ltd. Logo">
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Goyal+Iron" alt="Goyal Iron and Steel Foundry Logo">
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Hardayal" alt="Hardayal Milk Products Pvt. Ltd. Logo">
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=R.P.+Milk" alt="R.P. Milk made Products Pvt. Ltd. Logo">
+            </div>
+            <p style="font-size: 0.95em; color: #666666; margin-top: 30px;">Our extensive client list includes leading names such as Thermax Ltd., Doshion Ltd., Va-tech (Wabag Ltd.), Atul Industries, Hind Lamps Ltd., Goyal Iron and Steel Foundry, Hardayal Milk Products Pvt. Ltd., R.P. Milk made Products Pvt. Ltd., and many other top-notch companies, hotels, and educational institutions across India.</p>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="section why-us">
+            <h2>Why Partner with Ram Chemical Enterprises?</h2>
+            <p>Choosing Ram Chemical Enterprises means opting for a partner committed to your success. Our distinct advantages include:</p>
+            <ul>
+                <li>Superior quality Water Treatment Chemicals and technically advanced Systems.</li>
+                <li>Ethical business practices, ensuring honesty and transparency in all operations.</li>
+                <li>A dedicated team of experts with profound industry understanding.</li>
+                <li>Modern warehousing facility ensuring product integrity and timely delivery.</li>
+                <li>A wide business network facilitating efficient service across regions.</li>
+                <li>Direct commercial benefits, assured quality, and access to the latest technology.</li>
+            </ul>
+            <p>Our aim extends beyond sales; we strive to create awareness about the importance of water and promote water recycling among the masses, contributing to a sustainable future.</p>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Transform Your Water Management?</h2>
+            <div>
+                <a href="mailto:ramchemical1@gmail.com" class="cta-button">Request a Quote</a>
+                <a href="mailto:ramchemical1@gmail.com" class="cta-button">Connect with Us</a>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <p style="margin-bottom: 10px;">
+                <strong>Ram Chemical Enterprises</strong><br>
+                ISO Certified 9001:2015
+            </p>
+            <p style="margin-bottom: 10px;">
+                Head Office: #43/478/39 Radha Nagar, Sikandra, Agra-282007, India
+            </p>
+            <p style="margin-bottom: 10px;">
+                Phone: <a href="tel:+919412286691">+91 9412286691</a>, <a href="tel:+917906895853">+91 7906895853</a><br>
+                Email: <a href="mailto:ramchemical1@gmail.com">ramchemical1@gmail.com</a>
+            </p>
+            <div class="social-icons" style="margin-top: 20px;">
+                <!-- Placeholder Social Icons - Replace with actual links if available -->
+                <a href="#" target="_blank"><img src="https://placehold.co/28x28/1a1a1a/fdd9d5?text=LI" alt="LinkedIn"></a>
+                <a href="#" target="_blank"><img src="https://placehold.co/28x28/1a1a1a/fdd9d5?text=FB" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="https://placehold.co/28x28/1a1a1a/fdd9d5?text=TW" alt="Twitter"></a>
+            </div>
+            <p style="margin-top: 20px; color: #999999;">
+                &copy; <script>document.write(new Date().getFullYear())</script> Ram Chemical Enterprises. All rights reserved.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
