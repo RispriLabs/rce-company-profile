@@ -50,7 +50,7 @@
 
         /* Hero Section */
         .hero {
-            background-color: #e42d12; /* Deep Red - Brand Primary */
+            background: linear-gradient(135deg, #e42d12 0%, #a8200e 100%); /* Deep Red gradient */
             color: #ffffff;
             padding: 60px 40px; /* More padding for impact */
             text-align: center;
@@ -61,6 +61,7 @@
             font-weight: 700;
             margin: 0 0 20px 0;
             line-height: 1.15;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
         }
         .hero p {
             font-size: 1.3em; /* Larger subheading */
@@ -73,7 +74,10 @@
         /* Section Styling (About Us, Infrastructure, Certifications, etc.) */
         .section {
             padding: 40px; /* Consistent padding */
-            border-bottom: 1px solid #eeeeee;
+            /* Subtle gradient divider */
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, #eeeeee, #fdd9d5, #eeeeee) 1;
+            margin-bottom: 0; /* Adjust margin if gradient is border */
         }
         .section:last-of-type {
             border-bottom: none; /* No border for the last section */
@@ -82,9 +86,10 @@
             font-family: 'Poppins', sans-serif;
             color: #e42d12; /* Deep Red for section titles */
             font-size: 2.2em;
-            font-weight: 600;
+            font-weight: 700; /* More bold */
             margin: 0 0 25px 0;
             text-align: center;
+            letter-spacing: 0.5px;
         }
         .section p {
             font-size: 1.05em;
@@ -112,14 +117,19 @@
             left: 0;
             top: 0;
         }
+        .section ul li strong {
+            font-weight: 600; /* Emphasize list item headings */
+        }
 
         /* Services Grid */
+        .services-grid-container {
+            background-color: #fdfdfd; /* Off-white for service background */
+        }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive 2-column layout */
             gap: 25px; /* Increased gap */
             padding: 30px 40px;
-            background-color: #fdfdfd; /* Off-white for service background */
         }
         .service-item {
             background-color: #ffffff;
@@ -131,11 +141,11 @@
             align-items: center;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .service-item:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px); /* More pronounced lift effect on hover */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
         }
         .service-item img {
             max-width: 60px; /* Larger icons */
@@ -147,7 +157,7 @@
             font-size: 1.2em;
             color: #222222;
             margin: 0 0 8px 0;
-            font-weight: 600;
+            font-weight: 700; /* More bold */
         }
         .service-item p {
             font-size: 0.95em;
@@ -169,15 +179,16 @@
             max-width: 120px; /* Larger client logos */
             height: auto;
             opacity: 0.7; /* Slightly faded for sophisticated look */
-            transition: opacity 0.2s ease-in-out;
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
         }
         .client-logos img:hover {
             opacity: 1; /* Full opacity on hover */
+            transform: scale(1.05); /* Slight scale on hover */
         }
 
         /* CTA Section */
         .cta-section {
-            background-color: #f65a43; /* Lighter Red Accent */
+            background: linear-gradient(90deg, #f65a43 0%, #e42d12 100%); /* Gradient for CTA */
             padding: 50px 40px;
             text-align: center;
             color: #ffffff;
@@ -185,6 +196,7 @@
         .cta-section h2 {
             color: #ffffff; /* White text on accent background */
             margin-bottom: 30px;
+            font-weight: 700; /* More bold */
         }
         .cta-button {
             display: inline-block;
@@ -194,16 +206,18 @@
             border-radius: 8px;
             font-family: 'Poppins', sans-serif;
             font-size: 1.1em;
-            font-weight: 600;
+            font-weight: 700; /* More bold */
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 0.8px;
             margin: 10px;
-            transition: background-color 0.2s ease-in-out;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .cta-button:hover {
             background-color: #333333;
+            transform: scale(1.05); /* Slight scale on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* Footer Section */
@@ -215,6 +229,18 @@
             font-size: 0.9em;
             line-height: 1.7;
             border-radius: 0 0 12px 12px; /* Match container border-radius */
+            position: relative;
+            z-index: 1; /* Ensure footer content is above any subtle background elements */
+        }
+        .footer::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 5px; /* Thin gradient line at the top of the footer */
+             background: linear-gradient(to right, #e42d12, #000000); /* Red to black gradient */
+             z-index: -1;
         }
         .footer a {
             color: #fdd9d5; /* Lightest Red Accent for links */
@@ -302,7 +328,8 @@
     <div class="container">
         <!-- Header Section -->
         <header class="header">
-            <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/Company-Logo.png" alt="Ram Chemical Enterprises Logo" class="logo">
+            <!-- Company Logo from GitHub -->
+            <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/Company-Logo.png" alt="Ram Chemical Enterprises Logo" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/250x70/ffffff/e42d12?text=RAM+CHEMICAL+ENT';">
             <p class="tagline">Leading the Future of Water Treatment and Chemical Solutions Since 1999</p>
         </header>
 
@@ -316,14 +343,14 @@
         <section class="section about-us">
             <h2>About Ram Chemical Enterprises</h2>
             <p>Established in 1999 in Agra, India, Ram Chemical Enterprises has grown to become a trusted and reliable name in the water treatment industry. As an ISO Certified 9001:2015 company, we are dedicated to providing a comprehensive range of Water Treatment Chemicals, Water Treatment Equipment, and Water Treatment Plants. We are manufacturers and dealers of all types of plants and chemicals for wastewater treatment, alongside a robust portfolio of basic chemicals.</p>
-            <p>Under the visionary leadership of our founder and Technical Director, Mr. Ramesh Chauhan (B.Tech Chemical IIT Roorkee), with decades of industry experience, we have cultivated a legacy of innovation and client trust. Our success is further bolstered by Mrs. Anju Chauhan (B. Tech. Electronics IIT Roorkee) leading Commercial & Administration, and Mr. Anand overseeing Technical Sales, ensuring a holistic approach to excellence.</p>
+            <p>Under the visionary leadership of our founder and Technical Director, Mr. Ramesh Chauhan (B.Tech Chemical IIT Roorkee), with decades of industry experience, we have cultivated a legacy of innovation and client trust. Our success is further bolstered by Mrs. Anju Chauhan (B. Tech. Electronics IIT Roorkee) leading Commercial & Administration, and Mr. Rishabh overseeing Technical Sales, ensuring a holistic approach to excellence.</p>
             <h3>Our Core Philosophy:</h3>
             <ul>
-                <li>To be a true partner, fostering relationships built on trust, honesty, and commercial transparency.</li>
-                <li>To provide customized & cost-effective water treatment solutions and services.</li>
-                <li>To continuously grow by adding products and services developed through rigorous R&D and strategic marketing of specialty niche products.</li>
-                <li>To commit to continuous improvement in both our team's skill sets and product quality.</li>
-                <li>To tirelessly bring the latest technologically advanced products, solutions, and chemistry to ensure trouble-free operations for our clients.</li>
+                <li><strong>Partnership-Driven:</strong> To be a true partner, fostering relationships built on trust, honesty, and commercial transparency.</li>
+                <li><strong>Customized Solutions:</strong> To provide customized & cost-effective water treatment solutions and services.</li>
+                <li><strong>Continuous Innovation:</strong> To continuously grow by adding products and services developed through rigorous R&D and strategic marketing of specialty niche products.</li>
+                <li><strong>Quality Commitment:</strong> To commit to continuous improvement in both our team's skill sets and product quality.</li>
+                <li><strong>Technological Advancement:</strong> To tirelessly bring the latest technologically advanced products, solutions, and chemistry to ensure trouble-free operations for our clients.</li>
             </ul>
         </section>
 
@@ -332,102 +359,102 @@
             <h2>Our Comprehensive Solutions & Services</h2>
             <div class="services-grid">
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-chemical%20image%20icon.png" alt="Water Treatment Chemicals">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-chemical.png" alt="Water Treatment Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=CHEM';">
                     <h3>Water Treatment Chemicals</h3>
                     <p>A comprehensive range of chemicals for various water treatment needs.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/boiler-water-chemicals%20image%20icon.png" alt="Boiler Water Chemicals">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/boiler-water-chemicals.png" alt="Boiler Water Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=BOILER';">
                     <h3>Boiler Water Chemicals</h3>
                     <p>Specialty chemicals ensuring optimal performance and protection for boilers.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/cooling-water-treatment-chemicals%20image%20icon.png" alt="Cooling Water Treatment Chemicals">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/cooling-water-treatment-chemicals.png" alt="Cooling Water Treatment Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=COOLING';">
                     <h3>Cooling Water Treatment Chemicals</h3>
                     <p>Advanced formulations to prevent corrosion, scaling, and biofouling in cooling systems.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/effluent-treatment-chemicals%20image%20icon.png" alt="Effluent Treatment Chemicals">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/effluent-treatment-chemicals.png" alt="Effluent Treatment Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=ETP';">
                     <h3>Effluent Treatment Chemicals</h3>
                     <p>Effective chemicals for treating industrial and domestic wastewater effluents.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/ro-chemicals%20image%20icon.png" alt="RO Chemicals">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/ro-chemicals.png" alt="RO Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=RO';">
                     <h3>RO Chemicals</h3>
                     <p>Essential chemicals for optimizing the performance and longevity of Reverse Osmosis systems.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/paper-process-chemicals%20image%20icon.png" alt="Paper Process Chemicals">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/paper-process-chemicals.png" alt="Paper Process Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=PAPER';">
                     <h3>Paper Process Chemicals</h3>
                     <p>Specialized chemicals enhancing efficiency and quality in paper manufacturing.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/sugar-processing-chemicals%20image%20icon.png" alt="Sugar Processing Chemicals">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/sugar-processing-chemicals.png" alt="Sugar Processing Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=SUGAR';">
                     <h3>Sugar Processing Chemicals</h3>
                     <p>Formulations designed for optimal processing and purification in the sugar industry.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-plant%20image%20icon.png" alt="Water Treatment Plant">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-plant.png" alt="Water Treatment Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=PLANT';">
                     <h3>Water Treatment Plants</h3>
                     <p>Custom-engineered plants for diverse water treatment applications.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/reverse-osmosis-plants%20image%20icon.png" alt="Reverse Osmosis Plants">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/reverse-osmosis-plants.png" alt="Reverse Osmosis Plants Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=ROPLANT';">
                     <h3>Reverse Osmosis Plants</h3>
                     <p>Advanced RO systems for highly purified water production, designed for efficiency.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-softening-plant%20image%20icon.png" alt="Water Softening Plant">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-softening-plant.png" alt="Water Softening Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=SOFTEN';">
                     <h3>Water Softening Plant</h3>
                     <p>Robust plants to effectively reduce water hardness for industrial and commercial use.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-filteration-plant%20image%20icon.png" alt="Water Filtration Plant">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-filteration-plant.png" alt="Water Filtration Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=FILTER';">
                     <h3>Water Filtration Plant</h3>
                     <p>Comprehensive filtration solutions, including Pressure Sand, Multi-grade, and Activated Carbon filters.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-recycling-plant%20image%20icon.png" alt="Water Recycling Plant">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-recycling-plant.png" alt="Water Recycling Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=RECYCLE';">
                     <h3>Water Recycling Plant</h3>
                     <p>Sustainable solutions for water reuse, minimizing environmental impact and operational costs.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/hydranautics-membrane%20image%20icon.png" alt="Hydranautics Membrane">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/hydranautics-membrane.png" alt="Hydranautics Membrane Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=MEMBRANE';">
                     <h3>Hydranautics Membrane</h3>
                     <p>High-performance membranes crucial for advanced water purification and filtration.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/code-line-pressure%20tube%20image%20icon.png" alt="Code Line Pressure Tube">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/code-line-pressure-tube.png" alt="Code Line Pressure Tube Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=TUBE';">
                     <h3>Code Line Pressure Tube</h3>
                     <p>Durable and high-quality pressure tubes designed for reliable system performance.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/frp-and-composit-tanks%20image%20icon.png" alt="FRP and Composite Tanks">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/frp-and-composit-tanks.png" alt="FRP and Composite Tanks Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=TANKS';">
                     <h3>FRP and Composite Tanks</h3>
                     <p>Corrosion-resistant and durable tanks for various water storage and treatment applications.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/fleck-valve%20image%20icon.png" alt="Fleck Valve">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/fleck-valve.png" alt="Fleck Valve Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=VALVE';">
                     <h3>Fleck Valve</h3>
                     <p>Reliable automatic control valves essential for softener and filter systems.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/manual-multiport-valves%20image%20icon.png" alt="Manual Multiport Valves">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/manual-multiport-valves.png" alt="Manual Multiport Valves Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=MPV';">
                     <h3>Manual Multiport Valves</h3>
                     <p>Versatile and robust valves for effective control of water flow in various systems.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/wellmate-hydronumatics-frp-tanks%20image%20icon.png" alt="Wellmate Hydronumatics FRP Tanks">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/wellmate-hydronumatics-frp-tanks.png" alt="Wellmate Hydronumatics FRP Tanks Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=WELLMATE';">
                     <h3>Wellmate Hydronumatics FRP Tanks</h3>
                     <p>Specialized FRP tanks designed for hydropneumatic applications, ensuring durability.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-spares%20image%20icon.png" alt="Water Treatment Spares">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-spares.png" alt="Water Treatment Spares Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=SPARES';">
                     <h3>Water Treatment Spares</h3>
                     <p>Essential spare parts and accessories to ensure continuous and efficient plant operation.</p>
                 </div>
                 <div class="service-item">
-                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-services%20image%20icon.png" alt="Water Treatment Services">
+                    <img src="https://github.com/RispriLabs/rce-company-profile/blob/main/Assets/water-treatment-services.png" alt="Water Treatment Services Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=SERVICE';">
                     <h3>Water Treatment Services</h3>
                     <p>Expert consultancy, feasibility studies, installation, and after-sales support.</p>
                 </div>
@@ -453,11 +480,11 @@
             <h2>Trusted by Industry Leaders</h2>
             <p>Our commitment to quality and excellence has earned us the trust of a wide range of esteemed clients across diverse sectors. We are proud to be ISO 9001:2015 Certified, a testament to our unwavering dedication to international quality standards.</p>
             <div class="client-logos">
-                <!-- Replace these with actual client logos if available -->
+                <!-- Placeholder Client Logos - Dimensions are indicative, use actual logos if available -->
                 <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Thermax" alt="Thermax Ltd. Logo">
                 <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Doshion" alt="Doshion Ltd. Logo">
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Va-tech" alt="Va-tech (Wabag Ltd.) Logo">
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Atul+Industries" alt="Atul Industries Logo">
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Wabag" alt="Va-tech (Wabag Ltd.) Logo">
+                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Atul" alt="Atul Industries Logo">
                 <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Hind+Lamps" alt="Hind Lamps Ltd. Logo">
                 <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Goyal+Iron" alt="Goyal Iron and Steel Foundry Logo">
                 <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Hardayal" alt="Hardayal Milk Products Pvt. Ltd. Logo">
