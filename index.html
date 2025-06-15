@@ -7,13 +7,29 @@
     <!-- Google Fonts: Poppins (for headings) and Inter (for body) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Define CSS Variables for the new color palette */
+        :root {
+            --color-primary: #016eff; /* Vibrant Professional Blue */
+            --color-primary-dark: #004dcc; /* Darker shade of primary for gradients */
+            --color-primary-light: #66b5ff; /* Lighter shade of primary for gradients */
+            --color-primary-very-light: #e6f2ff; /* Very light blue for subtle backgrounds */
+            --color-secondary: #212529; /* Dark Grey / Near Black for strong contrast */
+            --color-text-heading: var(--color-secondary);
+            --color-text-body: #495057; /* Mid-dark grey for body text */
+            --color-text-light: #ffffff; /* White text for dark backgrounds */
+            --color-background-light: #f8f9fa; /* Almost white, very subtle grey */
+            --color-background-neutral: #e9ecef; /* Slightly darker grey for sections */
+            --color-border-light: #dee2e6; /* Light grey for general borders */
+            --color-button-hover: #005bb5; /* Darker blue for button hover */
+        }
+
         /* General Body Styles */
         body {
             font-family: 'Inter', sans-serif; /* Primary body font */
             margin: 0;
             padding: 0;
-            background-color: #f2f4f6; /* Light grey background for the page */
-            color: #333333; /* Dark grey for general text */
+            background-color: var(--color-background-light); /* Light grey background for the page */
+            color: var(--color-text-body); /* Dark grey for general text */
             line-height: 1.6;
             -webkit-font-smoothing: antialiased; /* Smoother font rendering */
             -moz-osx-font-smoothing: grayscale;
@@ -23,7 +39,7 @@
         .container {
             max-width: 960px; /* Wider container for a richer layout */
             margin: 30px auto;
-            background-color: #ffffff; /* White background for content */
+            background-color: var(--color-text-light); /* White background for content */
             border-radius: 12px; /* More pronounced rounded corners */
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger, more professional shadow */
@@ -31,10 +47,10 @@
 
         /* Header Section */
         .header {
-            background-color: #ffffff;
+            background-color: var(--color-text-light);
             padding: 30px;
             text-align: center;
-            border-bottom: 1px solid #eeeeee;
+            border-bottom: 1px solid var(--color-border-light);
         }
         .header .logo {
             max-width: 250px; /* Larger logo */
@@ -43,15 +59,15 @@
         }
         .header .tagline {
             font-size: 1.1em;
-            color: #666666;
+            color: var(--color-text-body);
             font-weight: 400;
             margin: 0;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #e42d12 0%, #a8200e 100%); /* Deep Red gradient */
-            color: #ffffff;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); /* Deep Blue gradient */
+            color: var(--color-text-light);
             padding: 60px 40px; /* More padding for impact */
             text-align: center;
         }
@@ -76,7 +92,7 @@
             padding: 40px; /* Consistent padding */
             /* Subtle gradient divider */
             border-bottom: 1px solid transparent;
-            border-image: linear-gradient(to right, #eeeeee, #fdd9d5, #eeeeee) 1;
+            border-image: linear-gradient(to right, var(--color-border-light), var(--color-primary-very-light), var(--color-border-light)) 1;
             margin-bottom: 0; /* Adjust margin if gradient is border */
         }
         .section:last-of-type {
@@ -84,7 +100,7 @@
         }
         .section h2 {
             font-family: 'Poppins', sans-serif;
-            color: #e42d12; /* Deep Red for section titles */
+            color: var(--color-primary); /* Primary Blue for section titles */
             font-size: 2.2em;
             font-weight: 700; /* More bold */
             margin: 0 0 25px 0;
@@ -94,7 +110,7 @@
         .section p {
             font-size: 1.05em;
             line-height: 1.7;
-            color: #444444;
+            color: var(--color-text-body);
             margin-bottom: 1em;
         }
         .section ul {
@@ -107,11 +123,11 @@
             padding-left: 25px;
             margin-bottom: 8px;
             font-size: 1.05em;
-            color: #444444;
+            color: var(--color-text-body);
         }
         .section ul li::before {
             content: '•';
-            color: #e42d12; /* Deep Red bullet points */
+            color: var(--color-primary); /* Primary Blue bullet points */
             font-size: 1.2em;
             position: absolute;
             left: 0;
@@ -123,7 +139,7 @@
 
         /* Services Grid */
         .services-grid-container {
-            background-color: #fdfdfd; /* Off-white for service background */
+            background-color: var(--color-background-light); /* Off-white for service background */
         }
         .services-grid {
             display: grid;
@@ -132,8 +148,8 @@
             padding: 30px 40px;
         }
         .service-item {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
+            background-color: var(--color-text-light);
+            border: 1px solid var(--color-border-light);
             border-radius: 10px; /* Slightly more rounded service items */
             padding: 20px;
             display: flex;
@@ -155,13 +171,13 @@
         .service-item h3 {
             font-family: 'Poppins', sans-serif;
             font-size: 1.2em;
-            color: #222222;
+            color: var(--color-text-heading);
             margin: 0 0 8px 0;
             font-weight: 700; /* More bold */
         }
         .service-item p {
             font-size: 0.95em;
-            color: #666666;
+            color: var(--color-text-body);
             margin: 0;
             line-height: 1.5;
         }
@@ -188,20 +204,20 @@
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(90deg, #f65a43 0%, #e42d12 100%); /* Gradient for CTA */
+            background: linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary) 100%); /* Gradient for CTA */
             padding: 50px 40px;
             text-align: center;
-            color: #ffffff;
+            color: var(--color-text-light);
         }
         .cta-section h2 {
-            color: #ffffff; /* White text on accent background */
+            color: var(--color-text-light); /* White text on accent background */
             margin-bottom: 30px;
             font-weight: 700; /* More bold */
         }
         .cta-button {
             display: inline-block;
-            background-color: #000000; /* Black - Secondary color for buttons */
-            color: #ffffff;
+            background-color: var(--color-secondary); /* Dark Grey - Secondary color for buttons */
+            color: var(--color-text-light);
             padding: 15px 35px;
             border-radius: 8px;
             font-family: 'Poppins', sans-serif;
@@ -215,15 +231,15 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .cta-button:hover {
-            background-color: #333333;
+            background-color: var(--color-button-hover); /* Darker blue on hover */
             transform: scale(1.05); /* Slight scale on hover */
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
 
         /* Footer Section */
         .footer {
-            background-color: #1a1a1a; /* Darker black */
-            color: #cccccc;
+            background-color: var(--color-secondary); /* Darker black */
+            color: var(--color-text-light);
             padding: 30px 40px;
             text-align: center;
             font-size: 0.9em;
@@ -239,11 +255,11 @@
              left: 0;
              width: 100%;
              height: 5px; /* Thin gradient line at the top of the footer */
-             background: linear-gradient(to right, #e42d12, #000000); /* Red to black gradient */
+             background: linear-gradient(to right, var(--color-primary), var(--color-secondary)); /* Blue to black gradient */
              z-index: -1;
         }
         .footer a {
-            color: #fdd9d5; /* Lightest Red Accent for links */
+            color: var(--color-primary-light); /* Light Blue Accent for links */
             text-decoration: none;
             font-weight: 500;
         }
@@ -329,7 +345,7 @@
         <!-- Header Section -->
         <header class="header">
             <!-- Company Logo from GitHub -->
-            <img src="Assets/Company-Logo.png" alt="Ram Chemical Enterprises Logo" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/250x70/ffffff/e42d12?text=RAM+CHEMICAL+ENT';">
+            <img src="Assets/Company-Logo.png" alt="Ram Chemical Enterprises Logo" class="logo" onerror="this.onerror=null; this.src='https://placehold.co/250x70/ffffff/016eff?text=RAM+CHEMICAL+ENT';">
             <p class="tagline">Leading the Future of Water Treatment and Chemical Solutions Since 1999</p>
         </header>
 
@@ -343,7 +359,7 @@
         <section class="section about-us">
             <h2>About Ram Chemical Enterprises</h2>
             <p>Established in 1999 in Agra, India, Ram Chemical Enterprises has grown to become a trusted and reliable name in the water treatment industry. As an ISO Certified 9001:2015 company, we are dedicated to providing a comprehensive range of Water Treatment Chemicals, Water Treatment Equipment, and Water Treatment Plants. We are manufacturers and dealers of all types of plants and chemicals for wastewater treatment, alongside a robust portfolio of basic chemicals.</p>
-            <p>Under the visionary leadership of our founder and Technical Director, Mr. Ramesh Chauhan (B.Tech Chemical IIT Roorkee), with decades of industry experience, we have cultivated a legacy of innovation and client trust. Our success is further bolstered by Mrs. Anju Chauhan (B. Tech. Electronics IIT Roorkee) leading Commercial & Administration, and Mr. Rishabh (B.Tech Chemical ICT Mumbai) overseeing Technical Sales, ensuring a holistic approach to excellence.</p>
+            <p>Under the visionary leadership of our founder and Technical Director, Mr. Ramesh Chauhan (B.Tech Chemical IIT Roorkee), with decades of industry experience, we have cultivated a legacy of innovation and client trust. Our success is further bolstered by Mrs. Anju Chauhan (B. Tech. Electronics IIT Roorkee) leading Commercial & Administration, and Mr. Anand overseeing Technical Sales, ensuring a holistic approach to excellence.</p>
             <h3>Our Core Philosophy:</h3>
             <ul>
                 <li><strong>Partnership-Driven:</strong> To be a true partner, fostering relationships built on trust, honesty, and commercial transparency.</li>
@@ -359,102 +375,102 @@
             <h2>Our Comprehensive Solutions & Services</h2>
             <div class="services-grid">
                 <div class="service-item">
-                    <img src="Assets/water-treatment-chemical.png" alt="Water Treatment Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=CHEM';">
+                    <img src="Assets/water-treatment-chemical.png" alt="Water Treatment Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=CHEM';">
                     <h3>Water Treatment Chemicals</h3>
                     <p>A comprehensive range of chemicals for various water treatment needs.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/boiler-water-chemicals.png" alt="Boiler Water Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=BOILER';">
+                    <img src="Assets/boiler-water-chemicals.png" alt="Boiler Water Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=BOILER';">
                     <h3>Boiler Water Chemicals</h3>
                     <p>Specialty chemicals ensuring optimal performance and protection for boilers.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/cooling-water-treatment-chemicals.png" alt="Cooling Water Treatment Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=COOLING';">
+                    <img src="Assets/cooling-water-treatment-chemicals.png" alt="Cooling Water Treatment Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=COOLING';">
                     <h3>Cooling Water Treatment Chemicals</h3>
                     <p>Advanced formulations to prevent corrosion, scaling, and biofouling in cooling systems.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/effluent-treatment-chemicals.png" alt="Effluent Treatment Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=ETP';">
+                    <img src="Assets/effluent-treatment-chemicals.png" alt="Effluent Treatment Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=ETP';">
                     <h3>Effluent Treatment Chemicals</h3>
                     <p>Effective chemicals for treating industrial and domestic wastewater effluents.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/ro-chemicals.png" alt="RO Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=RO';">
+                    <img src="Assets/ro-chemicals.png" alt="RO Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=RO';">
                     <h3>RO Chemicals</h3>
                     <p>Essential chemicals for optimizing the performance and longevity of Reverse Osmosis systems.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/paper-process-chemicals.png" alt="Paper Process Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=PAPER';">
+                    <img src="Assets/paper-process-chemicals.png" alt="Paper Process Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=PAPER';">
                     <h3>Paper Process Chemicals</h3>
                     <p>Specialized chemicals enhancing efficiency and quality in paper manufacturing.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/sugar-processing-chemicals.png" alt="Sugar Processing Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=SUGAR';">
+                    <img src="Assets/sugar-processing-chemicals.png" alt="Sugar Processing Chemicals Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=SUGAR';">
                     <h3>Sugar Processing Chemicals</h3>
                     <p>Formulations designed for optimal processing and purification in the sugar industry.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/water-treatment-plant.png" alt="Water Treatment Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=PLANT';">
+                    <img src="Assets/water-treatment-plant.png" alt="Water Treatment Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=PLANT';">
                     <h3>Water Treatment Plants</h3>
                     <p>Custom-engineered plants for diverse water treatment applications.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/reverse-osmosis-plants.png" alt="Reverse Osmosis Plants Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=ROPLANT';">
+                    <img src="Assets/reverse-osmosis-plants.png" alt="Reverse Osmosis Plants Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=ROPLANT';">
                     <h3>Reverse Osmosis Plants</h3>
                     <p>Advanced RO systems for highly purified water production, designed for efficiency.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/water-softening-plant.png" alt="Water Softening Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=SOFTEN';">
+                    <img src="Assets/water-softening-plant.png" alt="Water Softening Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=SOFTEN';">
                     <h3>Water Softening Plant</h3>
                     <p>Robust plants to effectively reduce water hardness for industrial and commercial use.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/water-filteration-plant.png" alt="Water Filtration Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=FILTER';">
+                    <img src="Assets/water-filteration-plant.png" alt="Water Filtration Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=FILTER';">
                     <h3>Water Filtration Plant</h3>
                     <p>Comprehensive filtration solutions, including Pressure Sand, Multi-grade, and Activated Carbon filters.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/water-recycling-plant.png" alt="Water Recycling Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=RECYCLE';">
+                    <img src="Assets/water-recycling-plant.png" alt="Water Recycling Plant Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=RECYCLE';">
                     <h3>Water Recycling Plant</h3>
                     <p>Sustainable solutions for water reuse, minimizing environmental impact and operational costs.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/hydranautics-membrane.png" alt="Hydranautics Membrane Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=MEMBRANE';">
+                    <img src="Assets/hydranautics-membrane.png" alt="Hydranautics Membrane Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=MEMBRANE';">
                     <h3>Hydranautics Membrane</h3>
                     <p>High-performance membranes crucial for advanced water purification and filtration.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/code-line-pressure-tube.png" alt="Code Line Pressure Tube Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=TUBE';">
+                    <img src="Assets/code-line-pressure-tube.png" alt="Code Line Pressure Tube Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=TUBE';">
                     <h3>Code Line Pressure Tube</h3>
                     <p>Durable and high-quality pressure tubes designed for reliable system performance.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/frp-and-composit-tanks.png" alt="FRP and Composite Tanks Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=TANKS';">
+                    <img src="Assets/frp-and-composit-tanks.png" alt="FRP and Composite Tanks Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=TANKS';">
                     <h3>FRP and Composite Tanks</h3>
                     <p>Corrosion-resistant and durable tanks for various water storage and treatment applications.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/fleck-valve.png" alt="Fleck Valve Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=VALVE';">
+                    <img src="Assets/fleck-valve.png" alt="Fleck Valve Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=VALVE';">
                     <h3>Fleck Valve</h3>
                     <p>Reliable automatic control valves essential for softener and filter systems.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/manual-multiport-valves.png" alt="Manual Multiport Valves Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=MPV';">
+                    <img src="Assets/manual-multiport-valves.png" alt="Manual Multiport Valves Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=MPV';">
                     <h3>Manual Multiport Valves</h3>
                     <p>Versatile and robust valves for effective control of water flow in various systems.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/wellmate-hydronumatics-frp-tanks.png" alt="Wellmate Hydronumatics FRP Tanks Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=WELLMATE';">
+                    <img src="Assets/wellmate-hydronumatics-frp-tanks.png" alt="Wellmate Hydronumatics FRP Tanks Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=WELLMATE';">
                     <h3>Wellmate Hydronumatics FRP Tanks</h3>
                     <p>Specialized FRP tanks designed for hydropneumatic applications, ensuring durability.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/water-treatment-spares.png" alt="Water Treatment Spares Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=SPARES';">
+                    <img src="Assets/water-treatment-spares.png" alt="Water Treatment Spares Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=SPARES';">
                     <h3>Water Treatment Spares</h3>
                     <p>Essential spare parts and accessories to ensure continuous and efficient plant operation.</p>
                 </div>
                 <div class="service-item">
-                    <img src="Assets/water-treatment-services.png" alt="Water Treatment Services Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e0e0e0/e42d12?text=SERVICE';">
+                    <img src="Assets/water-treatment-services.png" alt="Water Treatment Services Icon" onerror="this.onerror=null; this.src='https://placehold.co/60x60/e6f2ff/016eff?text=SERVICE';">
                     <h3>Water Treatment Services</h3>
                     <p>Expert consultancy, feasibility studies, installation, and after-sales support.</p>
                 </div>
@@ -481,16 +497,16 @@
             <p>Our commitment to quality and excellence has earned us the trust of a wide range of esteemed clients across diverse sectors. We are proud to be ISO 9001:2015 Certified, a testament to our unwavering dedication to international quality standards.</p>
             <div class="client-logos">
                 <!-- Placeholder Client Logos - Dimensions are indicative, use actual logos if available -->
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Thermax" alt="Thermax Ltd. Logo">
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Doshion" alt="Doshion Ltd. Logo">
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Wabag" alt="Va-tech (Wabag Ltd.) Logo">
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Atul" alt="Atul Industries Logo">
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Hind+Lamps" alt="Hind Lamps Ltd. Logo">
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Goyal+Iron" alt="Goyal Iron and Steel Foundry Logo">
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=Hardayal" alt="Hardayal Milk Products Pvt. Ltd. Logo">
-                <img src="https://placehold.co/120x50/fdd9d5/e42d12?text=R.P.+Milk" alt="R.P. Milk made Products Pvt. Ltd. Logo">
+                <img src="https://placehold.co/120x50/e9ecef/016eff?text=Thermax" alt="Thermax Ltd. Logo">
+                <img src="https://placehold.co/120x50/e9ecef/016eff?text=Doshion" alt="Doshion Ltd. Logo">
+                <img src="https://placehold.co/120x50/e9ecef/016eff?text=Wabag" alt="Va-tech (Wabag Ltd.) Logo">
+                <img src="https://placehold.co/120x50/e9ecef/016eff?text=Atul" alt="Atul Industries Logo">
+                <img src="https://placehold.co/120x50/e9ecef/016eff?text=Hind+Lamps" alt="Hind Lamps Ltd. Logo">
+                <img src="https://placehold.co/120x50/e9ecef/016eff?text=Goyal+Iron" alt="Goyal Iron and Steel Foundry Logo">
+                <img src="https://placehold.co/120x50/e9ecef/016eff?text=Hardayal" alt="Hardayal Milk Products Pvt. Ltd. Logo">
+                <img src="https://placehold.co/120x50/e9ecef/016eff?text=R.P.+Milk" alt="R.P. Milk made Products Pvt. Ltd. Logo">
             </div>
-            <p style="font-size: 0.95em; color: #666666; margin-top: 30px;">Our extensive client list includes leading names such as Thermax Ltd., Doshion Ltd., Va-tech (Wabag Ltd.), Atul Industries, Hind Lamps Ltd., Goyal Iron and Steel Foundry, Hardayal Milk Products Pvt. Ltd., R.P. Milk made Products Pvt. Ltd., and many other top-notch companies, hotels, and educational institutions across India.</p>
+            <p style="font-size: 0.95em; color: var(--color-text-body); margin-top: 30px;">Our extensive client list includes leading names such as Thermax Ltd., Doshion Ltd., Va-tech (Wabag Ltd.), Atul Industries, Hind Lamps Ltd., Goyal Iron and Steel Foundry, Hardayal Milk Products Pvt. Ltd., R.P. Milk made Products Pvt. Ltd., and many other top-notch companies, hotels, and educational institutions across India.</p>
         </section>
 
         <!-- Why Choose Us Section -->
@@ -532,9 +548,9 @@
             </p>
             <div class="social-icons" style="margin-top: 20px;">
                 <!-- Placeholder Social Icons - Replace with actual links if available -->
-                <a href="#" target="_blank"><img src="https://placehold.co/28x28/1a1a1a/fdd9d5?text=LI" alt="LinkedIn"></a>
-                <a href="#" target="_blank"><img src="https://placehold.co/28x28/1a1a1a/fdd9d5?text=FB" alt="Facebook"></a>
-                <a href="#" target="_blank"><img src="https://placehold.co/28x28/1a1a1a/fdd9d5?text=TW" alt="Twitter"></a>
+                <a href="#" target="_blank"><img src="https://placehold.co/28x28/212529/66b5ff?text=LI" alt="LinkedIn"></a>
+                <a href="#" target="_blank"><img src="https://placehold.co/28x28/212529/66b5ff?text=FB" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="https://placehold.co/28x28/212529/66b5ff?text=TW" alt="Twitter"></a>
             </div>
             <p style="margin-top: 20px; color: #999999;">
                 &copy; <script>document.write(new Date().getFullYear())</script> Ram Chemical Enterprises. All rights reserved.
